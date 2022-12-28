@@ -6,6 +6,8 @@
   "scripts": {
     "test": "npx tsc && jasmine",
     "start": "nodemon src/index.ts",
+    "lint": "eslint 'src/**/*.ts'",
+    "prettier": "prettier --config .prettierrc 'src/**/*.ts' --write",
     "build": "npx tsc"
   },
   "author": "Mohamed Sarifo",
@@ -19,6 +21,8 @@
     "@types/node": "^18.11.18",
     "@types/sharp": "^0.31.0",
     "@types/supertest": "^2.0.12",
+    "@typescript-eslint/eslint-plugin": "^5.47.1",
+    "@typescript-eslint/parser": "^5.47.1",
     "eslint": "^8.30.0",
     "eslint-config-prettier": "^8.5.0",
     "eslint-plugin-prettier": "^4.2.1",

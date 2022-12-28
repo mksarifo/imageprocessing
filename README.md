@@ -10,7 +10,11 @@ In the project directory, you can run:
 
 ### `npm start`
 
-Runs the app on port 8001
+Start the dev server. Runs the app on port 8001
+
+### `npm run lint`
+
+Checks the app from lint errors
 
 ### `npm run test`
 
