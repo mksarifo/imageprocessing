@@ -20,6 +20,10 @@ Start the dev server. Runs the app on port 8001
 
 Checks the app from lint errors
 
+### `npm run prettier`
+
+Format code with prettier
+
 ### `npm run test`
 
 Builds and runs jasmine tests
@@ -31,8 +35,6 @@ Builds the application and saves to build directory
 ## Working images
 
 Copy images to buid/public/assets/image folder
-
-In order for the tests to run successfully, please copy the 'board.jpg' file to buid/public/assets/image
 
 ## Endpoints
 

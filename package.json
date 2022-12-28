@@ -6,9 +6,9 @@
   "scripts": {
     "test": "npx tsc && jasmine",
     "start": "nodemon src/index.ts",
-    "lint": "eslint 'src/**/*.ts'",
-    "prettier": "prettier --config .prettierrc 'src/**/*.ts' --write",
-    "build": "npx tsc"
+    "lint": "eslint  'src/**/*.ts'  ",
+    "prettier": "prettier --config .prettierrc --write src/**/*.ts ",
+    "build": "npx tsc && cp src/public/assets/image/* build/public/assets/image/"
   },
   "author": "Mohamed Sarifo",
   "license": "ISC",
