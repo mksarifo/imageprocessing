@@ -27,3 +27,9 @@ Builds the application and saves to build directory
 ## Working images
 
 Copy images to buid/public/assets/image folder
+
+## Endpoints
+
+"/" - Health check, to see if server is up
+
+"/api/image/board?width=200height=200" - Returns an image named 'board' with a width of 200 and a height of 200
