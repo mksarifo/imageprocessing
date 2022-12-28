@@ -32,8 +32,10 @@ Builds the application and saves to build directory
 
 Copy images to buid/public/assets/image folder
 
+In order for the tests to run successfully, please copy the 'board.jpg' file to buid/public/assets/image
+
 ## Endpoints
 
-"/" - Health check, to see if server is up
+`/` - Health check, to see if server is up
 
-"/api/image/board?width=200height=200" - Returns an image named 'board' with a width of 200 and a height of 200
+`/api/image/board?width=200height=200` - Returns an image named 'board' with a width of 200 and a height of 200
