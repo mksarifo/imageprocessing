@@ -1,3 +1,7 @@
+# Image Processing API
+
+This project written in nodejs (typescript) exposes an API that returns an image by filename resized to specification
+
 ## Startup
 
 ### `npm i`

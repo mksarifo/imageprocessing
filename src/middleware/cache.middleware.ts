@@ -1,5 +1,6 @@
 import express from 'express';
 import path from 'path';
+import { thumb_path } from '../utils/constants';
 
 const cache = function (
   req: express.Request,
@@ -16,7 +17,7 @@ const cache = function (
   const dir = __dirname.slice(0, -11);
   try {
     const options = {
-      root: path.join(dir, 'public/assets/thumb/'),
+      root: path.join(dir, thumb_path),
       dotfiles: 'deny',
       headers: {
         'x-timestamp': Date.now(),

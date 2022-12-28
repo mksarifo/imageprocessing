@@ -3,9 +3,9 @@ import Cors from 'cors';
 import helmet from 'helmet';
 import morgan from 'morgan';
 import sharp from 'sharp';
-import path from 'path';
 import validate from './middleware/validate.middleware';
 import cache from './middleware/cache.middleware';
+import { options, resize } from './utils/processImage';
 
 const app = express();
 const port = process.env.PORT || 8001;
@@ -17,7 +17,7 @@ app.use(helmet());
 app.use(morgan('tiny'));
 
 app.get('/', function (req, res) {
-  res.send('hello world');
+  res.send('alive');
 });
 
 app.get('/api/image/:name', validate, cache, function (req, res) {
@@ -28,29 +28,23 @@ app.get('/api/image/:name', validate, cache, function (req, res) {
   };
   const outFileName = `${fileName}${sizes.height}x${sizes.width}`;
   try {
-    const options = {
-      root: path.join(__dirname, 'public/assets/thumb/'),
-      dotfiles: 'deny',
-      headers: {
-        'x-timestamp': Date.now(),
-        'x-sent': true
-      }
-    };
-    sharp(`${__dirname}/public/assets/image/${fileName}.jpg`)
-      .resize(parseInt(sizes.width), parseInt(sizes.height))
-      .toFile(
-        `${__dirname}/public/assets/thumb/${outFileName}.jpg`,
-        (err, info) => {
-          if (info) {
-            res.sendFile(`${outFileName}.jpg`, options, function (error) {
-              console.log(error);
-            });
-          }
-          if (err) {
-            res.status(404).send({ message: "image requested wasn't found" });
-          }
+    resize(
+      fileName,
+      outFileName,
+      sizes.width,
+      sizes.height,
+      (err: Error, info: sharp.OutputInfo) => {
+        if (info) {
+          res.sendFile(`${outFileName}.jpg`, options, function (error) {
+            console.log(error);
+          });
         }
-      );
+        if (err) {
+          console.log(err);
+          res.status(404).send({ message: "image requested wasn't found" });
+        }
+      }
+    );
   } catch (error) {
     res
       .status(500)

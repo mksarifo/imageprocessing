@@ -1,7 +1,7 @@
 import request from 'supertest';
 import app from '../index';
 
-describe('Server', () => {
+describe('Server Test', () => {
   it('Should return 200 if the server is up', () => {
     request(app).get('/').expect(200);
   });
@@ -10,7 +10,7 @@ describe('Server', () => {
   });
 });
 
-describe('Image resize', () => {
+describe('Image Resize API Test', () => {
   it('Returns invalid request query params', () => {
     request(app).get('/api/image/board?height=mksd&width=mkds').expect(404);
   });
